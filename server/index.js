@@ -7,6 +7,14 @@ const userRoutes=require("./routes/userRoute.js");
 const app =express();
 app.use(express.json());
 dotenv.config();
+app.use(cors(
+    {
+        origin: ["https://deploy-mern-frontend.vercel.app"],
+        methods: ["POST", "GET"],
+        credentials: true
+    }
+));
+app.use(express.json())
 // app.get("/", (req, res)=>{
 //     res.status(200).json("This is the main page of the api");
 // });
