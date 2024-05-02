@@ -7,7 +7,13 @@ const userRoutes=require("./routes/userRoute.js");
 const app =express();
 app.use(express.json());
 dotenv.config();
-app.use(cors());
+app.use(cors(
+    {
+        origin: ["https://contactapp-4gkn.vercel.app/"],
+        methods: ["POST", "GET"],
+        credentials: true
+    }
+));
 app.use("/api/contact",contactRouter);
 app.use("/importcontact",userRoutes);
 app.listen(process.env.PORT , ()=>{
