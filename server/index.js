@@ -7,13 +7,7 @@ const userRoutes=require("./routes/userRoute.js");
 const app =express();
 app.use(express.json());
 dotenv.config();
-app.use(cors(
-    {
-        origin: ["https://contactapp-ten-plum.vercel.app"],
-        methods: ["POST", "GET"],
-        credentials: true
-    }
-));
+app.use(cors());
 app.use("/api/contact",contactRouter);
 app.use("/importcontact",userRoutes);
 app.listen(process.env.PORT , ()=>{
